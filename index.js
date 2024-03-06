@@ -1,26 +1,10 @@
-// const searchForm = document.getElementById("search-form");
-// const searchBox = document.getElementById("search-box");
-// const searchResult = document.getElementById("search-result");
-// const showMore = document.getElementById("show-more");
 const gameCard = document.querySelector(".games__container");
-const searchResults = document.querySelector(".search-results-for")
-
+const searchResults = document.querySelector(".search-results-for");
 
 async function main(value) {
-  // creates the query string for the url endpoint
-  let inputStr = value.toString();
-  let outputStr = "";
-
-  for (let i = 0; i < inputStr.length; i++) {
-    if (inputStr[i] === " ") {
-      outputStr += "%20";
-    } else {
-      outputStr += inputStr[i];
-    }
-  }
-  console.log(outputStr);
-
-  let url = `https://movies-api14.p.rapidapi.com/search?query=` + outputStr;
+  let url = `https://movies-api14.p.rapidapi.com/search?query=${
+    value || "fast"
+  }`;
   const options = {
     method: "GET",
     headers: {
@@ -31,33 +15,43 @@ async function main(value) {
   const data = await fetch(url, options);
   const info = await data.json();
 
-  // prints out the movie titles in the console
-  gameCard.innerHTML = info.contents.map((movie) => {
-    console.log(movie.original_title);
-  });
-
+  //implementing data to html format
   gameCard.innerHTML = info.contents
     .slice(0, 10)
     .map((movie) => gameHTML(movie))
     .join("");
 
-    console.log(title)
+  console.log(info);
+  console.log(value); // 
 }
 
+main();
+
+
+// sort function
+function sortBy(event) {
+  main(event.target.value);
+  console.log(event.target.value)
+}
+
+
+
+// search function/loading stage
 function filterGames(event) {
   main(event.target.value);
-  title = event.target.value
-  const loading = document.querySelector(".loading__stage");
-  loading.classList += " loading__stage--visible";
+  title = event.target.value;
 
+  const loading = document.querySelector(".loading__stage");
+
+  loading.classList += " loading__stage--visible";
+  //same concept as above
   setTimeout(() => {
     loading.classList.remove("loading__stage--visible");
   }, 2000);
 
-  searchResults.innerHTML = `Results for: ${title}`
+  searchResults.innerHTML = `Results for: ${title}`;
 }
 
-main();
 
 function gameHTML(movie) {
   return `<div class="game__wrapper display-flex">

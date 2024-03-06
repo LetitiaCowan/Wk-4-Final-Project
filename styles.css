@@ -86,6 +86,7 @@ nav {
     gap: 2rem;
     font-size: 16px;
     font-weight: bold;
+    cursor: not-allowed;
 }
 
 .header__title {
@@ -111,7 +112,6 @@ HEADER
     display: flex;
     gap: .4rem;
     height: 60px;
-    margin-top: 16px;
     position: relative;
 }
 
@@ -141,11 +141,11 @@ HEADER
     background-color: #242424;
     height: 100vh;
     width: 100%;
-    z-index: -1;
+    display: none;
 }
 
 .loading__stage--visible {
-    z-index: 1;
+    display: flex;
 }
 
 .fa-spinner {
@@ -160,7 +160,7 @@ HEADER
 
 .search-results-for {
     color: white;
-    margin-top: 24px;
+    margin-top: 40px;
 }
 
 @keyframes spinner {
@@ -225,7 +225,6 @@ header{
     flex-direction: column;
     transition: all ease 300ms;
     overflow: hidden;
-
 }
 
 .game__wrapper {
@@ -266,9 +265,44 @@ header{
     width: 100%;
 }
 
-/* .movie-img__text {
-    font-weight: bold;
-    text-align: center;
-} */
+/*
+
+MEDIA QUERIES 
+
+*/
+
+@media (max-width: 768px) {
+   .header__container {
+    padding: 20px;
+   }
+   
+   .nav__background-img {
+    transform: scale(1.4);
+   }
+
+   .nav__background-img--wrapper {
+    overflow: hidden;
+   }
+
+   .game__wrapper {
+    width: calc(100% / 2);
+   }
+
+}
 
 
+.header-top__container{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+select {
+    height: 40px;
+    border-radius: 30px;
+    margin-left: 56px;
+}

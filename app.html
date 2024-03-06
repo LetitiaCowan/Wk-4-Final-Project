@@ -38,7 +38,8 @@
         </div>
 
         <h1 class="header__title">
-          Welcome to <i class="white">Movie Madness! </i> Home to your all time favorites!
+          Welcome to <i class="white">Movie Madness! </i> Home to your all time
+          favorites!
         </h1>
       </nav>
 
@@ -48,84 +49,31 @@
         </div>
 
         <div class="header__container">
-          <div id="search-container">
-            <input
-              id="search-input"
-              placeholder="Search your faves here!"
-              type="text"
-              onchange="filterGames(event)"
-            />
-            <button class="search__button" onclick="search(event)">
-              Search
-            </button>
+          <div class="header-top__container">
+            <div id="search-container">
+              <input
+                id="search-input"
+                placeholder="Search your faves here!"
+                type="text"
+                onchange="filterGames(event)"
+              />
+              <button class="search__button">
+                Search
+              </button>
+            </div>
+
+            <select name="" id="" onchange="sortBy(event)">
+              <option disabled selected>sort by:</option>
+              <option value="NEW_TO_OLD">Newest to oldest</option>
+              <option value="OLD_TO_NEW">Oldest to newest</option>
+            </select>
           </div>
 
           <div id="search-result"></div>
           <button id="showmore"></button>
           <h2 class="search-results-for">Trending lately!</h2>
-          <div class="games__container">
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2024/01/road_house_reboot_poster_joblo.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">Road House</span>
-            </div>
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2023/06/new-ghostbusters-poster.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">Ghost Busters: Frozen Empire</span>
-            </div>
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2023/12/american-society-poster.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">The American Society of Magical Negros</span>
-            </div>
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2021/01/borderlands-cate.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">Borderlands</span>
-            </div>
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2024/02/episode-1-re-release-poster.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">Star Wars: Episode I - The Phantom Menace
-              </span>
-            </div>
-            <div class="game__wrapper display">
-              <figure class="game-img--wrapper game__border">
-                <img
-                  class="game-img"
-                  src="https://www.joblo.com/wp-content/uploads/2023/01/back-to-black-poster-1.jpg"
-                  alt=""
-                />
-              </figure>
-              <span class="game__title">Back to Black</span>
-            </div>
-          </div>
+
+          <div class="games__container"></div>
         </div>
       </header>
     </section>
