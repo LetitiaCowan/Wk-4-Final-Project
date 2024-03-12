@@ -55,14 +55,14 @@
                 id="search-input"
                 placeholder="Search your faves here!"
                 type="text"
-                onchange="filterGames(event)"
+                onchange="filterMovie(event)"
               />
               <button class="search__button">
                 Search
               </button>
             </div>
 
-            <select name="" id="" onchange="sortBy(event)">
+            <select name="" id="sort__select" onchange="sortBy(event)">
               <option disabled selected>sort by:</option>
               <option value="NEW_TO_OLD">Newest to oldest</option>
               <option value="OLD_TO_NEW">Oldest to newest</option>
@@ -73,7 +73,7 @@
           <button id="showmore"></button>
           <h2 class="search-results-for">Trending lately!</h2>
 
-          <div class="games__container"></div>
+          <div class="movies__container"></div>
         </div>
       </header>
     </section>
