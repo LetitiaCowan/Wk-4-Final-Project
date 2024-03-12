@@ -18,8 +18,16 @@ async function main(value) {
   const data = await fetch(url, options);
   const info = await data.json();
   const response = info.contents;
+  console.log(response)
 
   if (value === "NEW_TO_OLD") {
+    oldest = response.sort(function (a, b) {
+      if (b.release_date > a.release_date) return 1;
+      if (b.release_date < a.release_date) return -1;
+      loading();
+      return 0;
+    });
+  } else if (value === "OLD_TO_NEW") {
     newest = response.sort(function (a, b) {
       if (a.release_date > b.release_date) return 1;
       if (a.release_date < b.release_date) return -1;
@@ -27,14 +35,6 @@ async function main(value) {
       return 0;
     });
     console.log(newest);
-  } else if (value === "OLD_TO_NEW") {
-    oldest = response.sort(function (a, b) {
-      if (b.release_date > a.release_date) return 1;
-      if (b.release_date < a.release_date) return -1;
-      loading();
-      return 0;
-    });
-    console.log(oldest);
   }
 
   //implementing data to html format
@@ -60,7 +60,6 @@ function filterMovie(event) {
   searchResults.innerHTML = `Results for: ${sortValue}`;
 }
 
-
 //loading stage function
 function loading(load) {
   const loading = document.querySelector(".loading__stage");
@@ -71,7 +70,6 @@ function loading(load) {
     loading.classList.remove("loading__stage--visible");
   }, 2000);
 }
-
 
 //html formating
 function movieHTML(movie) {
